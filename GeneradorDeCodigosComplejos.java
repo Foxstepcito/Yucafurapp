@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class GeneradorDeCodigosComplejos {
-    private static final String CARACTERES_PERMITIDOS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+    private static final String CARACTERES_PERMITIDOS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
 
     public static void main(String[] args) {
         // Crear un HashMap para almacenar los usuarios y sus códigos
@@ -26,7 +26,7 @@ public class GeneradorDeCodigosComplejos {
 
         // Imprimir los usuarios y sus códigos
         for (Map.Entry<String, String> entrada : codigosUsuarios.entrySet()) {
-            System.out.println("Usuario de Telegram: " + entrada.getKey() + " - Código de vinculación: " + entrada.getValue());
+            System.out.println("Usuario de Telegram: " + entrada.getKey() + " - Codigo de vinculacion: " + entrada.getValue());
         }
     }
 
