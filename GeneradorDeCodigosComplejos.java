@@ -1,11 +1,32 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class GeneradorDeCodigosComplejos {
     private static final String CARACTERES_PERMITIDOS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
 
     public static void main(String[] args) {
+        // Conectar a la base de datos
+        Connection conexion = null;
+
+        try{
+            String url = "jdbc:sqlite:basededatos/database.sqlite";
+            conexion = DriverManager.getConnection(url);
+        } catch (SQLException e){
+            System.err.println("Error al conectar a la base de datos");
+        } finally {
+            try {
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error al cerrar la conexión");
+            }
+        };
+
         // Crear un HashMap para almacenar los usuarios y sus códigos
         HashMap<String, String> codigosUsuarios = new HashMap<>();
 
